@@ -161,13 +161,16 @@
             let userScore = 0;
             $('.questions').each(function () {
                 userScore += parseInt($(this).val()[0]);
+
             });
+
+            console.log(userScore);
 
             function allFriends() {
                 let currentURL = window.location.origin;
 
                 let topMatch = "";
-                let topScore = 0;
+                let topScore = 41;
                 let matchPic = '';
 
                 $.ajax({
@@ -181,9 +184,13 @@
                             thisScore += parseInt(friendData[x].scores[y]);
                         };
 
-                        if (thisScore > topScore) {
+                        console.log(Math.abs(thisScore - userScore))
+                        console.log(topScore)
+
+                        if (Math.abs(thisScore - userScore) < topScore) {
                             topMatch = friendData[x].name;
                             matchPic = friendData[x].photo;
+                            topScore = Math.abs(thisScore - userScore);
                         }
                     };
 

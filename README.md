@@ -2,7 +2,7 @@
 
 A deployed app to help the user find new friends.
 
-Deployed on Heroku: https://whispering-woodland-24704.herokuapp.com/survey
+Deployed on Heroku: https://whispering-woodland-24704.herokuapp.com/
 
 
 ## Prerequisites

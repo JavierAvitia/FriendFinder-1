@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Friend Finder</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' href = 'https://bootswatch.com/4/minty/bootstrap.min.css'>
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h1 class="display-3">Welcome to Friend Finder!</h1>
+            <p class="lead">Our super sophisticated algorithims will be sure to find you your new BFF!</p>
+            <hr class="my-4">
+            <p>To get started, we will need you to fill out a short survey about yourself</p>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg submit" href="#" role="button">Lets Go!</a>
+            </p>
+        </div>
+
+        <div class='container'>
+            <div class='row'>
+                <div class='col-md-4'>
+                    <img class='img img-thumbnail friend-pic' src='https://www.rd.com/wp-content/uploads/2016/02/02-friends-make-you-more-attractive.jpg'>
+                </div>
+
+                <div class='col-md-4'>
+                    <img class='img img-thumbnail friend-pic' src='http://blog.beliefnet.com/lessonsfromarecoveringdoormat/files/2012/02/friends.jpg'>
+                </div>
+
+                <div class='col-md-4'>
+                    <img class='img img-thumbnail friend-pic' src='https://image.freepik.com/free-photo/friends-in-circle-with-heads-together-smiling_1139-613.jpg'>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            $('.submit').on('click', function(event) {
+                event.preventDefault();
+                location.replace('/survey')
+            })
+        </script>
+    </body>
+</html>

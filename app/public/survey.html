@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Friend Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='https://bootswatch.com/4/minty/bootstrap.min.css'>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class='container'>
+        <h1>Let's get to know more about you!</h1>
+
+        <hr>
+
+        <h3>Please answer each question based on whether or not you agree with each statement.</h3>
+
+        <form>
+            <div class="form-group">
+                <label for="question1">I find unpredictable situations exhilarating.</label>
+                <select class="form-control questions" id="question1">
+                    <option>1 - Strongly Disagree</option>
+                    <option>2 - Disagree</option>
+                    <option>3 - Neutral</option>
+                    <option>4 - Agree</option>
+                    <option>5 - Strongly Agree</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="question1">I find unpredictable situations exhilarating.</label>
+                <select class="form-control questions" id="question1">
+                    <option>1 - Strongly Disagree</option>
+                    <option>2 - Disagree</option>
+                    <option>3 - Neutral</option>
+                    <option>4 - Agree</option>
+                    <option>5 - Strongly Agree</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="question3">I have a very wide range of interests.</label>
+                <select class="form-control questions" id="question3">
+                    <option>1 - Strongly Disagree</option>
+                    <option>2 - Disagree</option>
+                    <option>3 - Neutral</option>
+                    <option>4 - Agree</option>
+                    <option>5 - Strongly Agree</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="question4">I am more optimistic than most people.</label>
+                <select class="form-control questions" id="question4">
+                    <option>1 - Strongly Disagree</option>
+                    <option>2 - Disagree</option>
+                    <option>3 - Neutral</option>
+                    <option>4 - Agree</option>
+                    <option>5 - Strongly Agree</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="question5"> I am always looking for new experiences.</label>
+                <select class="form-control questions" id="question5">
+                    <option>1 - Strongly Disagree</option>
+                    <option>2 - Disagree</option>
+                    <option>3 - Neutral</option>
+                    <option>4 - Agree</option>
+                    <option>5 - Strongly Agree</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="question6">I am more enthusiastic than most people.</label>
+                <select class="form-control questions" id="question6">
+                    <option>1 - Strongly Disagree</option>
+                    <option>2 - Disagree</option>
+                    <option>3 - Neutral</option>
+                    <option>4 - Agree</option>
+                    <option>5 - Strongly Agree</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="question7">I get restless if I have to stay home for any length of time.</label>
+                <select class="form-control questions" id="question7">
+                    <option>1 - Strongly Disagree</option>
+                    <option>2 - Disagree</option>
+                    <option>3 - Neutral</option>
+                    <option>4 - Agree</option>
+                    <option>5 - Strongly Agree</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="question8">I have more energy than most people.</label>
+                <select class="form-control questions" id="question8">
+                    <option>1 - Strongly Disagree</option>
+                    <option>2 - Disagree</option>
+                    <option>3 - Neutral</option>
+                    <option>4 - Agree</option>
+                    <option>5 - Strongly Agree</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="question9">On my time off, I like to be free to do whatever looks fun.</label>
+                <select class="form-control questions" id="question9">
+                    <option>1 - Strongly Disagree</option>
+                    <option>2 - Disagree</option>
+                    <option>3 - Neutral</option>
+                    <option>4 - Agree</option>
+                    <option>5 - Strongly Agree</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="question10">My friends would say I am very curious.</label>
+                <select class="form-control questions" id="question10">
+                    <option>1 - Strongly Disagree</option>
+                    <option>2 - Disagree</option>
+                    <option>3 - Neutral</option>
+                    <option>4 - Agree</option>
+                    <option>5 - Strongly Agree</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary submit">Submit</button>
+
+        </form>
+
+
+        <div class="modal-dialog d-none" role="document" id="user-match">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Top Match!</h5>
+                </div>
+                <div class="modal-body">
+                    <h1 id='friend-name'></h1>
+                    <img id='friend-pic' class='img img-thumbnail matchpic'>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary start-over" data-dismiss="modal">Start Over</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        $('.submit').on('click', function (event) {
+            event.preventDefault();
+
+            let userScore = 0;
+            $('.questions').each(function () {
+                userScore += parseInt($(this).val()[0]);
+            });
+
+            function allFriends() {
+                let currentURL = window.location.origin;
+
+                let topMatch = "";
+                let topScore = 0;
+                let matchPic = '';
+
+                $.ajax({
+                    url: currentURL + '/api/friends',
+                    method: 'GET'
+                }).done(function (friendData) {
+                    for (let x in friendData) {
+                        let thisScore = 0;
+
+                        for (let y in friendData[x].scores) {
+                            thisScore += parseInt(friendData[x].scores[y]);
+                        };
+
+                        if (thisScore > topScore) {
+                            topMatch = friendData[x].name;
+                            matchPic = friendData[x].photo;
+                        }
+                    };
+
+                    console.log(topMatch)
+                    $('#friend-name').html(topMatch);
+                    $('#friend-pic').attr('src', matchPic);
+                    $('#user-match').removeClass('d-none')
+                    scroll_to_anchor('user-match');
+                });
+            };
+
+            function scroll_to_anchor(anchor_id) {
+                var tag = $("#" + anchor_id + "");
+                $('html,body').animate({ scrollTop: tag.offset().top }, 'slow');
+            };
+
+            allFriends();
+
+            $('.start-over').on('click', function(event) {
+                event.preventDefault();
+
+                location.replace('/');
+            })
+        })
+    </script>
+
+</body>
+
+</html>
